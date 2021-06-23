@@ -1,3 +1,6 @@
+# https://www.hackerrank.com/challenges/s10-binomial-distribution-2/problem
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 def factorial(num):
     return 1 if num == 0 else num*factorial(num-1)
 answer1 = 0

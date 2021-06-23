@@ -1,4 +1,7 @@
-x, y = map(int, input().split())
+# https://www.hackerrank.com/challenges/s10-geometric-distribution-2/problem
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+x,y = map(int, input().split())
 p = x/y
 n = int(input())
 answer = 0
