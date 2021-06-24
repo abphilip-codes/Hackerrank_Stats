@@ -1,4 +1,4 @@
-# https://www.hackerrank.com/challenges/s10-geometric-distribution-1/problem
+# https://www.hackerrank.com/challenges/s10-normal-distribution-1/problem
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from math import erf

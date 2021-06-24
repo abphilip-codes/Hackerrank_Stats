@@ -1,12 +1,10 @@
-# https://www.hackerrank.com/challenges/s10-geometric-distribution-2/problem
+# https://www.hackerrank.com/challenges/s10-normal-distribution-2/problem
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-x,y = map(int, input().split())
-p = x/y
-n = int(input())
-answer = 0
-
-for z in range(1,n+1):
-    temp = (1-p)**(z-1) * p
-    answer = answer + temp
-print(round(answer,3))
+import math
+m, sd = list(map(int, input().split(" ")))
+q1 = int(input())
+q2 = int(input())
+print(round((1-0.5*(1 + math.erf((q1-m)/(sd*(2**0.5)))))*100,2))
+print(round((1-0.5*(1 + math.erf((q2-m)/(sd*(2**0.5)))))*100,2))
+print(round((0.5*(1 + math.erf((q2-m)/(sd*(2**0.5)))))*100,2))
