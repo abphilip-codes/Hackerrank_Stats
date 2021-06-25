@@ -1,19 +1,21 @@
 # https://www.hackerrank.com/challenges/s10-pearson-correlation-coefficient/problem
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-N = int(input())
-X = list(map(float,input().strip().split()))
-Y = list(map(float,input().strip().split()))
+n = int(input())
+s1 = s2 = cov = 0
 
-mu_x = sum(X) / N
-mu_y = sum(Y) / N
+x = list(map(float,input().strip().split()))
+ux = sum(x)/n
+for X in x:
+    s1 =  s1+(X-ux)**2
+stdx = (s1/n)**0.5
 
-stdv_x = (sum([(i - mu_x)**2 for i in X]) / N)**0.5
-stdv_y = (sum([(i - mu_y)**2 for i in Y]) / N)**0.5
+y = list(map(float,input().strip().split()))
+uy = sum(y)/n
+for Y in y:
+    s2 =  s2+(Y-uy)**2
+stdy = (s2/n)**0.5
 
-
-covariance = sum([(X[i] - mu_x) * (Y[i] -mu_y) for i in range(N)])
-
-correlation_coefficient = covariance / (N * stdv_x * stdv_y)
-
-print(round(correlation_coefficient,3))
+for i in range(n):
+    cov = cov + ((x[i]-ux)*(y[i]-uy))
+print(round(cov/(n*stdx*stdy),3))
