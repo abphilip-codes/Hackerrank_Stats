@@ -2,11 +2,13 @@
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 import math
-
 x = int(input())
 n = int(input())
-mu = int(input())
-sigma = int(input())
+μ = int(input())
+σ = int(input())
+
+mu = n*μ
+s = math.sqrt(n)*σ)
 
 mu_sum = n * mu 
 sigma_sum = math.sqrt(n) * sigma
