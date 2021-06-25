@@ -1,14 +1,12 @@
 # https://www.hackerrank.com/challenges/s10-the-central-limit-theorem-2/problem
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-from math import erf
-max_num = float(input())
+import math
+x = float(input())
 n = int(input())
 mu = float(input())
-std = float(input())
-mean = n*mu
-stan = std*(n**0.5)
-f = lambda x : 0.5*(1+erf((x-mean)/(stan*(2**0.5))))
-pro = f(max_num)
-pro = round(pro, 4)
-print(pro)
+si = float(input())
+
+m = n*mu
+s = math.sqrt(n)*si
+print(round(0.5*(1+math.erf((x-m)/(s*math.sqrt(2)))),4))
