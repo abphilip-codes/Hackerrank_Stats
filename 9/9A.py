@@ -2,33 +2,32 @@
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 import numpy as np
-m,n = [int(i) for i in input().strip().split(' ')]
-X = []
-Y = []
-for i in range(n):
-    data = input().strip().split(' ')
-    X.append(data[:m])
-    Y.append(data[m:])
-q = int(input().strip())
-X_new = []
-for x in range(q):
-    X_new.append(input().strip().split(' '))
-X = np.array(X,float)
-Y = np.array(Y,float)
-X_new = np.array(X_new,float)
+import math
+x = []
+y = []
+z = []
 
-#center
-X_R = X-np.mean(X,axis=0)
-Y_R = Y-np.mean(Y)
+m,n = [int(Z) for Z in input().strip().split(' ')]
+for Z in range(n):
+    d = input().strip().split(' ')
+    x.append(d[:m])
+    y.append(d[m:])
+    
+o = int(input().strip())
+for Z in range(o):
+    z.append(input().strip().split(' '))
 
-#calculate beta
-beta = np.dot(np.linalg.inv(np.dot(X_R.T,X_R)),np.dot(X_R.T,Y_R))
+x = np.array(x,float)
+y = np.array(y,float)
+z = np.array(z,float)
 
-#predict
-X_new_R = X_new-np.mean(X,axis=0)
-Y_new_R = np.dot(X_new_R,beta)
-Y_new = Y_new_R + np.mean(Y)
+xr = x-np.mean(x,axis=0)
+yr = y-np.mean(y)
+zr = z-np.mean(x,axis=0)
+b = np.dot(np.linalg.inv(np.dot(xr.T,xr)),np.dot(xr.T,yr))
 
-#print
-for i in Y_new:
+wr = np.dot(zr,b)
+w = wr+np.mean(y)
+
+for i in w:
     print(round(float(i),2))
