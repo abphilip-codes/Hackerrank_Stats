@@ -1,18 +1,17 @@
 # https://www.hackerrank.com/challenges/s10-spearman-rank-correlation-coefficient/problem
 
 # Enter your code here. Read input from STDIN. Print output to STDOUT
-def get_rank(X, n):
-    x_rank = dict((x, i+1) for i, x in enumerate(sorted(set(X))))
-    return [x_rank[x] for x in X]
-    
 n = int(input())
-X = list(map(float, input().split()))
-Y = list(map(float, input().split()))
+d = 0
 
-rx = get_rank(X, n)
-ry = get_rank(Y, n)
+x = list(map(float,input().strip().split()))
+xr1 = dict((X, i+1) for i, X in enumerate(sorted(set(x))))
+xr2 = [xr1[X] for X in x]
 
-d = [(rx[i] -ry[i])**2 for i in range(n)]
-rxy = 1 - (6 * sum(d)) / (n * (n*n - 1))
+y = list(map(float,input().strip().split()))
+yr1 = dict((Y, i+1) for i, Y in enumerate(sorted(set(y))))
+yr2 = [yr1[Y] for Y in y]
 
-print('%.3f' % rxy)
+for i in range(n):
+    d = d + (xr2[i] -yr2[i])**2
+print(round(1-(6*d)/(n*(n*n-1)),3))
